@@ -1,0 +1,49 @@
+guid: 43718f46-b5e6-40c9-96f7-60a07698f821
+liveboard:
+  name: Jira Issues
+  visualizations:
+  - id: Viz_1
+    answer:
+      name: "Total TIME_SPENT_SECONDS by Daily RESOLUTION_DATE, ASSIGNEE"
+      tables:
+      - id: JIRA_ISSUES
+        name: JIRA_ISSUES
+        fqn: c4f3c590-851f-4066-b7e2-6dd0aaab3852
+      search_query: "[RESOLUTION_DATE] [RESOLUTION_DATE].daily [ASSIGNEE] [TIME_SPENT_SECONDS]"
+      answer_columns:
+      - name: Day(RESOLUTION_DATE)
+      - name: ASSIGNEE
+      - name: Total TIME_SPENT_SECONDS
+      table:
+        table_columns:
+        - column_id: Day(RESOLUTION_DATE)
+          headline_aggregation: MIN-MAX
+        - column_id: ASSIGNEE
+          headline_aggregation: COUNT_DISTINCT
+        - column_id: Total TIME_SPENT_SECONDS
+          headline_aggregation: SUM
+        ordered_column_ids:
+        - Day(RESOLUTION_DATE)
+        - ASSIGNEE
+        - Total TIME_SPENT_SECONDS
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\",\"columnProperties\": [{\"columnId\": \"Day(RESOLUTION_DATE)\",\"columnProperty\": {}},{\"columnId\": \"ASSIGNEE\",\"columnProperty\": {}},{\"columnId\": \"Total TIME_SPENT_SECONDS\",\"columnProperty\": {}}]}"
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Day(RESOLUTION_DATE)
+        - column_id: ASSIGNEE
+        - column_id: Total TIME_SPENT_SECONDS
+        axis_configs:
+        - x:
+          - Day(RESOLUTION_DATE)
+          "y":
+          - Total TIME_SPENT_SECONDS
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {},\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"dataFieldArea\": \"column\"}},\"columnProperties\": [{\"columnId\": \"Day(RESOLUTION_DATE)\",\"columnProperty\": {}},{\"columnId\": \"ASSIGNEE\",\"columnProperty\": {}},{\"columnId\": \"Total TIME_SPENT_SECONDS\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"f6bd1eb6-cb7b-45b0-bd65-544e1cd05079\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total TIME_SPENT_SECONDS\"],\"isOpposite\": false}},{\"id\": \"17053fcc-f839-4b7f-8254-2b4d35ef2135\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Day(RESOLUTION_DATE)\"]}}]}"
+      display_mode: TABLE_MODE
+    viz_guid: 431e716f-50f6-469e-adde-540e538987f3
+  layout:
+    tiles:
+    - visualization_id: Viz_1
+      size: LARGE
